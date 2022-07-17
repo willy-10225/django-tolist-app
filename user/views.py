@@ -1,7 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 # Create your views here.
+def user_login(request):
+
+    if request.method == "POST":
+        if request.POST.get('register'):
+            return redirect('register')
+    return render(request,'./user/login.html')
 
 
 def user_register(request):
